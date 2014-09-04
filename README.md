@@ -17,7 +17,7 @@ vagrant box add precise32 http://files.vagrantup.com/precise32.box
 Get the repository
 -------------------
 ```bash
-git clone git@github.com:jgrossiord/vagrant-silex-hello-world.git
+git clone https://github.com/talskyorchard/vagrant-silex-cloudsearch.git . 
 ```
 Start the VM
 -------------------
