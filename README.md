@@ -1,4 +1,4 @@
-Vagrant Silex Hello World
+How To Set Up the Cloudsearch Silex App in Vagrant
 ==================
 
 Simple Vagrant Setup of a VM with Silex installed and running.
