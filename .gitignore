@@ -21,3 +21,8 @@ composer.lock
 logs/web/access.log
 logs/web/error.log
 logs/web/urls.txt
+
+# Zend Studio files
+.buildpath
+.project
+.settings
