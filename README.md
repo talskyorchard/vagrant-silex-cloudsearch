@@ -14,6 +14,11 @@ Add a standard box
 ```bash
 vagrant box add precise32 http://files.vagrantup.com/precise32.box
 ```
+Create a directory for the repo
+```bash
+mkdir vagrant_cloudsearch
+cd vagrant_cloudsearch
+```
 Get the repository
 -------------------
 ```bash
@@ -22,11 +27,14 @@ git clone https://github.com/talskyorchard/vagrant-silex-cloudsearch.git .
 Start the VM
 -------------------
 ```bash
-cd vagrant-silex-hello-world
 vagrant up
 ```
 See logs/web/urls.txt to get the URL of your application
-
+Log into the machine
+-------------------
+```bash
+vagrant ssh
+```
 Other commands (see Vagrant doc)
 --------------------
 To suspend the VM
