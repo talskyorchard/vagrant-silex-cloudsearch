@@ -13,6 +13,7 @@ app/config/parameters.ini
 app/config/parameters.yml
 composer.phar
 composer.lock
+config/config.ini
 
 # Vagrant files
 .vagrant

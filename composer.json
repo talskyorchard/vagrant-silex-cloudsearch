@@ -2,6 +2,6 @@
     "require": {
         "silex/silex": "~1.0",
         "twig/twig": ">=1.8",
-	"aws/aws-sdk-php": "2.*"
+		"aws/aws-sdk-php": "2.*"
     }
 }
