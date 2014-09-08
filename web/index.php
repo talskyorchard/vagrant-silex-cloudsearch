@@ -59,7 +59,9 @@ $app->get('/api/search/{term}', function ($term) use($app) {
 
 	$raw_url_no_params = 'http://search-dev-releases-v3-po53rzkarns7qzscfw5tlpk4k4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/search';
 	$curl = new Curl();
-	$curl->get($raw_url_no_params, array('q' => urlencode($term), 'return' => '_all_fields'));
+	$curl->get($raw_url_no_params, array(
+		'q' => $term, 
+		'return' => '_all_fields'));
 	$response = $curl->response;
 
 	//$something = new CloudSearchCall\CloudSearchCallSearch();
@@ -75,10 +77,9 @@ $app->get('/api/release/{release_id}', function ($release_id) use($app) {
 	$raw_url_no_params = 'http://search-dev-releases-v3-po53rzkarns7qzscfw5tlpk4k4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/search';
 	$curl = new Curl();
 	$curl->get($raw_url_no_params, array(
-			'q' => urlencode($release_id),
-			'q.parser' => urlencode('simple'),
-			'q.options' => urlencode('{"defaultOperator":"and","fields":["release_id"],"operators":[]}'),
-			'return' => urlencode('_all_fields')));
+		'q' => "(and (term field=release_id '$release_id'))",
+		'q.parser' => 'structured'
+	));
 	$response = $curl->response;
 
 	return $app->json($response);
