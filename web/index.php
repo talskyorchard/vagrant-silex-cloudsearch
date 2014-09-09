@@ -41,7 +41,7 @@ $app->get('/release/{release_id}', function  ($release_id) use( $app)
 $app->get('/artist/{artist_id}', function  ($artist_id) use( $app)
 {
     return $app['twig']->render('artist.twig', array(
-        'artist_id' => $release_id
+        'artist_id' => $artist_id
     ));
 })
     ->assert('artist_id', '\d+');
