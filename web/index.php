@@ -122,7 +122,7 @@ $app->get('/api/suggest/release_name/{prefix}', function  ($prefix) use($app)
 /*
  * Artist Name Suggest
  */
-$app->get('/api/suggest/release_name/{prefix}', function  ($prefix) use($app)
+$app->get('/api/suggest/artist_name/{prefix}', function  ($prefix) use($app)
 {
     $raw_suggest_url_no_params = 'http://search-dev-releases-v3-po53rzkarns7qzscfw5tlpk4k4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/suggest';
     $curl = new Curl();
