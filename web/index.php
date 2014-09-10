@@ -65,16 +65,29 @@ $app->get('/search/{term}', function  ($term) use( $app)
 /*
  * Basic Search Term
  */
-$app->get('/api/search/{term}', function  ($term) use( $app)
+$app->get('/api/search/', function(Request $request) use( $app)
 {
+    // q=term
+    $get_params = $request->query->all();
+    $term = $get_params['q'];
     
-    $raw_url_no_params = 'http://search-dev-releases-v3-po53rzkarns7qzscfw5tlpk4k4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/search';
-    $curl = new Curl();
-    $curl->get($raw_url_no_params, array(
+    // offset=30
+    if (array_key_exists('offset', $get_params)) {
+        $offset = $get_params['offset'];
+    }
+    
+    $search_params_array = array(
         'q' => $term,
         'facet.genre' => '{}',
         'return' => '_all_fields'
-    ));
+    );
+    if (isset($offset)) {
+        $search_params_array['start'] = $offset;
+    }
+    
+    $raw_url_no_params = 'http://search-dev-releases-v3-po53rzkarns7qzscfw5tlpk4k4.us-east-1.cloudsearch.amazonaws.com/2013-01-01/search';
+    $curl = new Curl();
+    $curl->get($raw_url_no_params, $search_params_array);
     $response = $curl->response;
 
     return $app->json($response);
