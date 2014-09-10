@@ -48,6 +48,17 @@ $app->get('/artist/{artist_id}', function  ($artist_id) use( $app)
     ->assert('artist_id', '\d+');
 
 /*
+ * Search results page
+ */
+$app->get('/search/{term}', function  ($term) use( $app)
+{
+    return $app['twig']->render('search.twig', array(
+        'term' => $term
+    ));
+})
+    ->assert('term', '.+');
+
+/*
  * JSON GET API
  */
 
