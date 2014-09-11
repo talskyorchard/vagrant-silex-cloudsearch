@@ -30,7 +30,7 @@ $app->get('/', function  () use( $app)
  */
 $app->get('/release/{release_id}', function  ($release_id) use( $app)
 {
-    return $app['twig']->render('release.twig', array(
+    return $app['twig']->render('index.twig', array(
         'release_id' => $release_id
     ));
 })
@@ -41,7 +41,7 @@ $app->get('/release/{release_id}', function  ($release_id) use( $app)
  */
 $app->get('/artist/{artist_id}', function  ($artist_id) use( $app)
 {
-    return $app['twig']->render('artist.twig', array(
+    return $app['twig']->render('index.twig', array(
         'artist_id' => $artist_id
     ));
 })
@@ -52,7 +52,7 @@ $app->get('/artist/{artist_id}', function  ($artist_id) use( $app)
  */
 $app->get('/search/{term}', function  ($term) use( $app)
 {
-    return $app['twig']->render('search.twig', array(
+    return $app['twig']->render('index.twig', array(
         'term' => $term
     ));
 })
